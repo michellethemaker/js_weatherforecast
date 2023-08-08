@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather forecasting</title>   
+    <link rel="icon" href="mapicon.png" type="image/icon type"> 
+    <link rel="stylesheet" href="styles.css">
+    </meta>
+    </meta>
+    <body>
+        <h1 title="nice hovering">Weather forecast 480km</h1>
+        <p> Enter location </p>
+        <p id="weatherInfo" ></p>  
+        <form >
+            <!-- <label for="location">Location: </label> -->
+            <input type="text" id="location" placeholder="e.g. Ang Mo Kio" name="location"><br><br>
+            <button type="button"  id="addButton" >Submit</button>
+            <button type="button"  id="alertButton" >say hi</button>
+        </form>
+        <div id="mapcontainer" style="position: relative"> 
+            <img src="map.png" id="map_image"/>
+            <img src="pin.png" id="pin" width="50px" height="50px" style="display: none; position: absolute" />
+        </div>
+        <script src="script.js"></script>
+    </body>
+</head>
+    </html>

@@ -10,13 +10,17 @@ body{
     font-family: Cambria;
 }
 
-
+#textbox{
+    border-radius: 7px;
+    box-shadow: 2px 2px 5px 1px lightslategray;
+}
 button{
     padding: 3px 10px;
-    border-color: green;
-    border-radius: 5px;
+    border-color: #013426;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 1px #889190;
     margin-left: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 form{
@@ -33,7 +37,24 @@ form{
 ::selection{
     background-color: aquamarine;
 }
+#pin{
+    width: 25px;
+    height: auto;
+}
+#map_image{
+    width: 553px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 1px #969a9c;
+}
 
 #weatherInfo{
     font-size: 20px;
+}
+
+/* full stop is for classes */
+.label{
+    position: absolute;
+    font-size: 16px;
+    color: red;
 }

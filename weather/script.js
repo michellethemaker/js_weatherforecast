@@ -53,7 +53,7 @@ class WeatherData{
       // note that x = based on long, y = based on lat. 
       // Y is inverted as coords=cartesian, png is normal
       // not the most accurate, esp as coords are on a spherical map and adjustments must be made
-      const pixelX = scale(long, 103.635, 103.987, 0,950);
+      const pixelX = scale(long, 103.635, 103.987, 0,900);
       const pixelY = scale(lat, 1.205926, 1.445, 600, 0); 
 
       // Find the area data in the API response
@@ -86,6 +86,8 @@ async function addItem() {
       }
   else{
     weatherInfo.textContent = "Location not found!";
+    const pin = document.getElementById("pin");
+    pin.style.display = "none"
   }
     }
   }
@@ -118,6 +120,3 @@ function alertTime(){
   function scale (number, inMin, inMax, outMin, outMax){
     return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
   }
-
-
-

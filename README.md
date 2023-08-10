@@ -1,5 +1,5 @@
 # js_weatherforecast
-uses temperature forecast from data.gov's API
+uses both temperature and weather forecast from data.gov's API
 
 Picking up javascript, as such I made a little weather forecast application. 
 Modified from automated branch. This branch is for learning Node JS.

@@ -64,13 +64,21 @@ class weatherData{
 
   async fetchStations(){
     try{
+      // clear previous labels first
+      const clearLabels = document.querySelectorAll('.weatherlabel');
+      clearLabels.forEach(weatherlabel=>{
+        weatherlabel.remove();
+        console.log("forecast labels removed");
+      });
+     
+
       const response = await fetch('https://api.data.gov.sg/v1/environment/2-hour-weather-forecast')
       const data = await response.json();
-
       this.data = data;
       const weatherData = data;
       console.log(this.data);
       console.log(data.items[0].forecasts);
+      timelabels.innerText = "Time retrieved: " + weatherData.items[0].update_timestamp.substring(11, 16);
 
       for (const forecast of weatherData.items[0].forecasts) {
         console.log(`Successful data fetch. Weather forecast for ${forecast.area}: ${forecast.forecast}`);
@@ -137,37 +145,52 @@ class weatherData{
     // Set the position of the pin using absolute positioning
     pin.style.left = pixelX + 'px';
     pin.style.top = pixelY + 'px';
-  
     // Optionally, you can set the background color and size of the pin
     // Show the pin on the map
     pin.style.display = 'block';
   }
 }
+// retrieving elements by ID
+
+  // weatherinfo and image
+  const weatherInfo = document.getElementById("weatherInfo");
+  const weatherImage = document.getElementById("forecast_image");
+
+  // last time retrieved
+  const timeInfo = document.getElementById("timelabels");
+  const timeButton = document.getElementById("refreshButton");
+  
+  
+  // const searchBox = document.getElementById("textbox");
+  const labels = document.getElementById("templabels");
+
+
 const tempDataInstance = new tempData();
 const fetchTempInterval = setInterval(tempDataInstance.fetchTemp, 5000);
 const weatherDataInstance = new weatherData();
 weatherDataInstance.fetchStations();
+timeButton.addEventListener("click", () => {
+  weatherDataInstance.fetchStations()
+});
 
 const weatherImageMap = {
   "Partly Cloudy (Day)": "weather_cloudy.png",
   "Partly Cloudy (Night)": "weather_cloudy_night.png",
   "Cloudy": "weather_cloudy.png",
   "Light Rain": "weather_light_showers.png",
-  "Light Showers": "weather_showers.png",
+  "Light Showers": "weather_light_showers.png",
+  "Showers": "weather_showers.png",
   "Thundery Showers": "weather_thunderstorm.png",
   "Sunny": "weather_sunny.png"
 };
-  // weatherinfo and image
-  const weatherInfo = document.getElementById("weatherInfo");
-  const weatherImage = document.getElementById("forecast_image");
 
-  // //add event listener for text box
-  // const searchBox = document.getElementById("textbox");
-  const labels = document.getElementById("templabels");
 
   function scale (number, inMin, inMax, outMin, outMax){
     return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
   }
+
+
+  
 
 
 

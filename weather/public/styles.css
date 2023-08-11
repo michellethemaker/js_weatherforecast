@@ -15,9 +15,14 @@ body{
 }
 
 #weatherInfo{
+    color: #000e52;
+    width: 54%;
+    max-width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 3px 1px 2px 1px #8d8f8f;
+    background-color: #f6f9ff;
     font-size: 20px;
-    color: #37869c;
-    padding-left: 10px;
 }
 
 /* use hashtag to reference elements by their id */
@@ -33,14 +38,13 @@ body{
 
 
 .left{
-    float: left;
-    position: relative;
-    /* background: #889190; */
+    top: 200px;
+    position: absolute;
 }
 
 #pin{
-    width: 50px;
-    height: 50px; 
+    width: 25px;
+    height: auto; 
     display: none;
     position: absolute;
 }
@@ -63,7 +67,9 @@ body{
 }
 
 .right{
-    flex: 1;
+    position: absolute;
+    top: 200px;
+    right: 30px;
     margin-left: 10px;
     columns: 2;
     column-gap: 15px;
@@ -72,6 +78,10 @@ body{
 
 #weatherlabels{
     line-height: 26px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 3px 1px 2px 1px #8d8f8f;
+    background-color: #f6f9ff;
 }
 
 .label{
@@ -79,15 +89,18 @@ body{
     font-size: 18px;
     color: red;
     font-weight: bold;
+    opacity: 0;
+    transition: opacity 3s ease;
 }
+
+.label.fade-in {
+    opacity: 1;
+  }
 
 ::selection{
     background-color: aquamarine;
 }
-#pin{
-    width: 25px;
-    height: auto;
-}
+
 #map_image{
     width: 553px;
     height: auto;
@@ -95,3 +108,19 @@ body{
     box-shadow: 1px 1px 3px 1px #969a9c;
 }
 
+.updatecontainer{
+    padding: 10px;
+    columns: 2;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 1px #969a9c;
+    background-color: #f6f9ff;
+}
+
+#timelabels{
+    font-size: 20px;
+}
+#refreshButton{
+    font-size: 15px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 1px #969a9c;
+}

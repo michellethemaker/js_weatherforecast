@@ -11,29 +11,14 @@ body{
     color: maroon;
     display: block;
     margin: 50px;
-    font-family: Cambria;
+    font-family: 'Geneva';
 }
 
 #weatherInfo{
     font-size: 20px;
-    color: #37869c
+    color: #37869c;
+    padding-left: 10px;
 }
-/* #textbox{
-    border-radius: 7px;
-    box-shadow: 2px 2px 5px 1px lightslategray;
-} */
-/* button{
-    padding: 3px 10px;
-    border-color: #013426;
-    border-radius: 10px;
-    box-shadow: 1px 1px 3px 1px #889190;
-    margin-left: 20px;
-    margin-bottom: 10px;
-}
-
-form{
-    float: inline-end
-} */
 
 /* use hashtag to reference elements by their id */
 /* full stop is for classes */
@@ -46,12 +31,6 @@ form{
     position: relative;
 }
 
-#pin{
-    width: 50px;
-    height: 50px; 
-    display: none;
-    position: absolute;
-}
 
 .left{
     float: left;
@@ -59,10 +38,23 @@ form{
     /* background: #889190; */
 }
 
+#pin{
+    width: 50px;
+    height: 50px; 
+    display: none;
+    position: absolute;
+}
+#forecast_station{
+    position:absolute;
+    left: 400px;
+    bottom: 130px;
+    display: none;
+}
+
 #forecast_image{
     position: absolute;
     border-radius: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     margin-right: 2px;
     width: 30%;
     height: auto;
@@ -73,6 +65,13 @@ form{
 .right{
     flex: 1;
     margin-left: 10px;
+    columns: 2;
+    column-gap: 15px;
+    font-size: 18px; 
+}
+
+#weatherlabels{
+    line-height: 26px;
 }
 
 .label{

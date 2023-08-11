@@ -93,6 +93,8 @@ class weatherData{
           weatherInfo.innerText = `Location is ${station}, forecast is ${foreca1st}`;
           weatherInfo.style.fontWeight = "bold";
           console.log(`Location is ${latitude} - ${longitude}`);
+          forecast_station.innerText = station;
+          forecast_station.style.display = "block";
           this.displayPin(latitude, longitude);
           const imageURL = weatherImageMap[foreca1st];
           weatherImage.src = imageURL;
@@ -126,7 +128,7 @@ class weatherData{
     // Y is inverted as coords=cartesian, png is normal
     // not the most accurate, esp as coords are on a spherical map and adjustments must be made
     const pixelX = scale(long, 103.635, 103.987, 0,430);
-    const pixelY = scale(lat, 1.205926, 1.445, 280, 0); 
+    const pixelY = scale(lat, 1.205926, 1.445, 270, 0); 
 
     // Find the area data in the API response
     console.log(`Latitude for ${this.area}: `+ lat + ` i.e. ${pixelY}`);
@@ -148,9 +150,12 @@ weatherDataInstance.fetchStations();
 
 const weatherImageMap = {
   "Partly Cloudy (Day)": "weather_cloudy.png",
+  "Partly Cloudy (Night)": "weather_cloudy_night.png",
   "Cloudy": "weather_cloudy.png",
+  "Light Rain": "weather_light_showers.png",
   "Light Showers": "weather_showers.png",
-  "Thundery Showers": "thunderstorm.png",
+  "Thundery Showers": "weather_thunderstorm.png",
+  "Sunny": "weather_sunny.png"
 };
   // weatherinfo and image
   const weatherInfo = document.getElementById("weatherInfo");

@@ -17,7 +17,7 @@ body{
 #weatherInfo{
     color: #000e52;
     width: 54%;
-    max-width: 100%;
+    max-width: 120%;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 3px 1px 2px 1px #8d8f8f;
@@ -30,6 +30,8 @@ body{
 
 .mapcontainer{
     display: flex; 
+    /* overflow: hidden;
+    white-space: nowrap; */
 }
 
 .imagecontainer{
@@ -38,8 +40,9 @@ body{
 
 
 .left{
-    top: 200px;
-    position: absolute;
+    /* top: 200px; */
+    display: inline-block;
+    /* position: absolute; */
 }
 
 #pin{
@@ -67,9 +70,10 @@ body{
 }
 
 .right{
-    position: absolute;
+    /* position: absolute; */
+    display: inline-block;
     top: 200px;
-    right: 30px;
+    /* right: 30px; */
     margin-left: 10px;
     columns: 2;
     column-gap: 15px;
@@ -89,8 +93,6 @@ body{
     font-size: 18px;
     color: red;
     font-weight: bold;
-    opacity: 0;
-    transition: opacity 3s ease;
 }
 
 .label.fade-in {
@@ -123,4 +125,10 @@ body{
     font-size: 15px;
     border-radius: 10px;
     box-shadow: 1px 1px 3px 1px #969a9c;
+}
+
+#refreshButton:hover{
+    opacity: 0.8;
+    font-weight: bold;
+    color: #03287e;
 }

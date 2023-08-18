@@ -20,9 +20,21 @@
                     <img id="forecast_image" />
                 </div>
                 <div class="updatecontainer">
-                    <div id="timelabels">time retrieved: </div>
+                    <span id="timelabels">time retrieved: </span>
                     <button type="button"  id="refreshButton" >Refresh</button>
                 </div>
+                <div class="login-container">
+                    <h1>Login</h1>
+                    <form action="login.php" method="post">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                        
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                        
+                        <button type="submit">Login</button>
+                    </form>
+                </div>  
                 <div id="templabels"></div>
             </div>
             <div class="right">

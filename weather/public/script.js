@@ -11,6 +11,7 @@ class tempData{
     try {
       // clear previous labels first
       const clearLabels = document.querySelectorAll('.label');
+      console.log("JELLO");
       clearLabels.forEach(label=>{
         label.remove();
         console.log("temperature labels removed");
@@ -18,13 +19,15 @@ class tempData{
 
       const response = await fetch('https://api.data.gov.sg/v1/environment/air-temperature') // API URL
       const data = await response.json()
-      
+
       this.data = data;
       // // Process the API response
       const weatherData = data; // Assuming the API response has a 'weather' key
+            console.log("response achieved");
+      console.log(weatherData.metadata.stations);
       for (const stations of weatherData.metadata.stations) {
         const temp = weatherData.items[0].readings.find(stationtemp =>stationtemp.station_id === stations.device_id);
-        // console.log(`${this.stations} temp is:  ${temp.value}`);
+        console.log(`${this.stations} temp is:  ${temp.value}`);
         // console.log(stations.id, stations.name, stations.location.latitude, stations.location.longitude);
           this.data = stations.id;
           this.temp = temp.value;
@@ -81,7 +84,7 @@ class weatherData{
       timelabels.innerText = "Time retrieved: " + weatherData.items[0].update_timestamp.substring(11, 16);
 
       for (const forecast of weatherData.items[0].forecasts) {
-        console.log(`Successful data fetch. Weather forecast for ${forecast.area}: ${forecast.forecast}`);
+        // console.log(`Successful data fetch. Weather forecast for ${forecast.area}: ${forecast.forecast}`);
         this.area = forecast.area;
         this.forecast = forecast.forecast;
         const coords = weatherData.area_metadata.find((area) => area.name === this.area);
@@ -89,7 +92,7 @@ class weatherData{
         const foreca1st = forecast.forecast;
         const latitude = coords.label_location.latitude;
         const longitude = coords.label_location.longitude;
-        console.log("coords: ", this.latitude, this.longitude);
+        // console.log("coords: ", latitude, longitude);
         
         const weatherlabel = document.createElement("div");
         weatherlabel.className = "weatherlabel";
@@ -174,13 +177,16 @@ timeButton.addEventListener("click", () => {
 });
 
 const weatherImageMap = {
-  "Partly Cloudy (Day)": "weather_cloudy.png",
+  "Partly Cloudy (Day)": "weather_cloudy.gif",
   "Partly Cloudy (Night)": "weather_cloudy_night.png",
-  "Cloudy": "weather_cloudy.png",
+  "Cloudy": "weather_cloudy.gif",
   "Light Rain": "weather_light_showers.png",
-  "Light Showers": "weather_light_showers.png",
-  "Showers": "weather_showers.png",
-  "Thundery Showers": "weather_thunderstorm.png",
+  "Light Showers": "weather_light_showers.gif",
+  "Showers": "weather_showers.gif",
+  "Heavy Showers": "weather_heavy_showers.gif",
+  "Thundery Showers": "weather_thunderstorm.gif",
+  "Heavy Thundery Showers": "weather_thunderstorm.gif",  
+  "Heavy Thundery Showers with Gusty Winds": "weather_thunderstorm_gusty.gif",  
   "Sunny": "weather_sunny.png"
 };
 
